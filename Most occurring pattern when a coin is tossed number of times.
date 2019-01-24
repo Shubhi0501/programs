@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+public class Penny 
+{
+   public static void main(String args[])
+   {     
+	      char[] array = {'H','T','T','H','T','T','H','H','H','T','T'};
+	      int max =0;
+	      Scanner sc = new Scanner(System.in);
+		  System.out.println("Enter the block size : ");
+		  int n = sc.nextInt();
+		  HashMap <String, Integer> hm = new HashMap<String, Integer>();
+		  for(int i=0;i<=array.length-n;i++)
+		  {	 String ele = "";
+			  for(int j =i;j<i+n;j++)
+			  {	  ele += array[j];
+			  }
+			  if(hm.containsKey(ele))
+					  
+			  {
+				  hm.put(ele, hm.get(ele)+ 1);
+			  }
+			  else 
+			  {
+				  hm.put(ele,1 );
+			  }
+		  }
+		  System.out.println(Collections.singletonList(hm));
+		  max = 0;
+		  String ans ="";
+		  for (Map.Entry<String, Integer> map : hm.entrySet())
+		  {
+		      if (map.getValue() > max)
+		      {
+		          max = map.getValue();
+		          ans = map.getKey();
+		      }
+		  }
+		  System.out.println("Maximum occuring pattern is " + ans);
+   }
+}
+		  
