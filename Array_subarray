@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+public class Array_sum 
+ {
+	public static void main(String args[])
+    {
+		 int right_arr = 0, left_arr = 0; 
+		
+		int[] arr = {1,2,3,4,5};
+		int max= arr[0];
+	    
+		for(int k=0; k<arr.length;k++)
+		 { 
+			 right_arr=0;
+			 left_arr=0;
+			for(int i =k; i<arr.length; i++)
+			 {
+				right_arr += arr[i]; 
+			 }
+		
+		   for(int j = k; j < arr.length-1; j++) 
+		     { 
+			    left_arr += arr[j]; 
+	          	System.out.println("Sum of Subarray : " + left_arr);
+	          	if(max < left_arr)
+	          	{
+	          		max = left_arr;
+	          	}
+		        right_arr -= arr[j]; 
+		        System.out.println("Sum of Subarray : " + right_arr); 
+		        if(max<  right_arr)
+		        {
+		        	max = right_arr;
+		        }
+		        System.out.println("-----");
+		          
+	          }
+		 
+		}
+}}
