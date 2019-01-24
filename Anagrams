@@ -1,0 +1,58 @@
+import java.util.*;
+   
+public class Anagrams 
+{ 
+  public static void main(String[] args)
+    {  
+      int flag =0;
+    	 Scanner sc = new Scanner(System.in);
+     	 System.out.println("Enter your string 1 : ");
+     	 String s1 = sc.nextLine();
+     	 System.out.println("Enter your string 2 : ");
+     	 String s2 = sc.nextLine();
+     	 
+     	 if(s1.length() == s2.length())
+     	 {
+     		 
+     	  Map<Character, Integer> hm = new HashMap<Character, Integer>();
+     	  	 
+     	  	 for(int i=0;i<s1.length();i++)
+     	  	 {
+     	  		 if (hm.containsKey(s1.charAt(i)))
+     	  		 {
+     	  			 hm.put(s1.charAt(i),hm.get(s1.charAt(i))+1);
+     	  		 }
+     	  		 else
+     	  		 {
+     	  			 hm.put(s1.charAt(i),1);
+     	  		 }
+     	  	 }
+     	  	Map<Character, Integer> hm2 = new HashMap<Character, Integer>();
+         	  	 
+         	  	 for(int j=0;j<s2.length();j++)
+         	  	 {
+         	  		 if (hm2.containsKey(s2.charAt(j)))
+         	  		 {
+         	  			 hm2.put(s2.charAt(j),hm2.get(s2.charAt(j))+1);
+         	  		 }
+         	  		 else
+         	  		 {
+         	  			 hm2.put(s2.charAt(j),1);
+         	  		 }
+         	  		 	 
+     	  	 }
+     	 
+     	  	 
+         	  	 if(hm2.equals(hm))
+     	  		 {
+     	  			 flag++;
+     	  		 }
+     	  	System.out.println(flag);	 
+         
+    }  
+     	 else
+     	 {
+     		System.out.println(flag);
+     	 }
+}
+}
